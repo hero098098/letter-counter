@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Letter Counter</h1>
+    <p>Enter your name, and we'll count the letters for you!</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="countLetters()">Count Letters</button>
+    <div id="result"></div>
+
+    <script>
+        function countLetters() {
+            const name = document.getElementById('nameInput').value.trim();
+            if (name === "") {
+                document.getElementById('result').textContent = "Please enter a valid name!";
+                return;
+            }
+            const letterCount = name.replace(/\s/g, "").length; // Remove spaces and count letters
+            document.getElementById('result').textContent = `Your name has ${letterCount} letters.`;
+        }
+    </script>
+</body>
+</html>
